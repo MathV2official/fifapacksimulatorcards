@@ -1,36 +1,11 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Random Image</title>
+    <title>Fut Birthday Pack Opener</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <style>
-		body {
-			text-align: center;
-			margin-top: 50px;
-			font-family: Arial, sans-serif;
-			background: linear-gradient(to right, #1e1e1e, #0a0a0a, #FFFFFF);
-		}
-		img {
-			max-width: 200px;
-			max-height: 200px;
-			margin: 10px;
-		}
-		h1 {
-			font-size: 36px;
-			margin-bottom: 50px;
-			color: #4CAF50;
-		}
-		button {
-			padding: 10px 20px;
-			border: none;
-			background-color: #007bff;
-			color: #fff;
-			font-size: 16px;
-			border-radius: 5px;
-			cursor: pointer;
-		}
-	</style>
   <body>
-    <button onclick="getRandomImage()">Get Random Image</button>
+    <button onclick="getRandomImage()">Open Pack</button>
     <br><br>
     <img id="image" src="">
     <script>
@@ -42,12 +17,16 @@
           "https://mathv2fifacards.netlify.app/Futbirthdaycards/Sow.png",
           "https://mathv2fifacards.netlify.app/Futbirthdaycards/Yeray.png",
           "https://mathv2fifacards.netlify.app/Futbirthdaycards/Muller.png",
+          "https://mathv2fifacards.netlify.app/Futbirthdaycards/Chukwueze.png",
         ];
         var lowProbImages = [
           "https://mathv2fifacards.netlify.app/Futbirthdaycards/Cantona.png",
           "https://mathv2fifacards.netlify.app/Futbirthdaycards/Puskas.png",
-         "https://mathv2fifacards.netlify.app/Futbirthdaycards/Best.png"
-
+          "https://mathv2fifacards.netlify.app/Futbirthdaycards/Best.png",
+          "https://mathv2fifacards.netlify.app/Futbirthdaycards/Jairzinho.png",
+          "https://mathv2fifacards.netlify.app/Futbirthdaycards/Koeman.png",
+          "https://mathv2fifacards.netlify.app/Futbirthdaycards/Matthaus.png",
+          "https://mathv2fifacards.netlify.app/Futbirthdaycards/Rush.png",
         ];
         if (randomNum < 0.99) {
           // get image with 99% chance
@@ -57,6 +36,23 @@
           var imageUrl = lowProbImages[Math.floor(Math.random() * lowProbImages.length)];
         }
         image.src = imageUrl;
+
+        // display packed images
+        var packedImages = ["Cantona.png", "Puskas.png", "Best.png", "Jairzinho.png", "Koeman.png", "Matthaus.png", "Rush.png"];
+        var imagesFolder = "https://mathv2fifacards.netlify.app/Futbirthdaycards/";
+        var uniquePackedImages = [...new Set(packedImages)]; // Get unique packed images
+        var imageContainer = window.open().document.body;
+        var imageList = document.createElement("ul");
+        imageList.setAttribute("id", "imageList");
+        imageContainer.appendChild(imageList);
+        uniquePackedImages.forEach(function(filename) {
+          var listItem = document.createElement("li");
+          listItem.textContent = filename;
+          var image = document.createElement("img");
+          image.src = imagesFolder + filename;
+          listItem.appendChild(image);
+          imageList.appendChild(listItem);
+        });
       }
     </script>
   </body>
