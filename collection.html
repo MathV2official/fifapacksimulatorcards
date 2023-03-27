@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>My Packed Cards</title>
+  </head>
+  <link rel="stylesheet" href="style.css" />
+  <body>
+    <h1>My Packed Cards</h1>
+    <div id="image-container"></div>
+    <script>
+      // Array of image URLs for packed cards
+      var packedCards = [
+        "https://mathv2fifacards.netlify.app/Futbirthdaycards/Cantona.png",
+        "https://mathv2fifacards.netlify.app/Futbirthdaycards/Puskas.png",
+        "https://mathv2fifacards.netlify.app/Futbirthdaycards/Best.png",
+        "https://mathv2fifacards.netlify.app/Futbirthdaycards/Jairzinho.png",
+        "https://mathv2fifacards.netlify.app/Futbirthdaycards/Bernardo.png",
+        "https://mathv2fifacards.netlify.app/Futbirthdaycards/Sow.png",
+        "https://mathv2fifacards.netlify.app/Futbirthdaycards/Yeray.png",
+        "https://mathv2fifacards.netlify.app/Futbirthdaycards/Muller.png",
+        "https://mathv2fifacards.netlify.app/Futbirthdaycards/Chukwueze.png",
+        "https://mathv2fifacards.netlify.app/Futbirthdaycards/Koeman.png",
+        "https://mathv2fifacards.netlify.app/Futbirthdaycards/Matthaus.png",
+        "https://mathv2fifacards.netlify.app/Futbirthdaycards/Rush.png",
+      ];
+      
+      // Get the image container element
+      var imageContainer = document.getElementById("image-container");
+      
+      // Create image elements for each packed card
+      for (var i = 0; i < packedCards.length; i++) {
+        var img = document.createElement("img");
+        img.src = packedCards[i];
+        img.alt = "Packed card #" + (i+1);
+        imageContainer.appendChild(img);
+      }
+    </script>
+  </body>
+</html>
