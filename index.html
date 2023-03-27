@@ -36,23 +36,6 @@
           var imageUrl = lowProbImages[Math.floor(Math.random() * lowProbImages.length)];
         }
         image.src = imageUrl;
-
-        // display packed images
-        var packedImages = ["Cantona.png", "Puskas.png", "Best.png", "Jairzinho.png", "Koeman.png", "Matthaus.png", "Rush.png"];
-        var imagesFolder = "https://mathv2fifacards.netlify.app/Futbirthdaycards/";
-        var uniquePackedImages = [...new Set(packedImages)]; // Get unique packed images
-        var imageContainer = window.open().document.body;
-        var imageList = document.createElement("ul");
-        imageList.setAttribute("id", "imageList");
-        imageContainer.appendChild(imageList);
-        uniquePackedImages.forEach(function(filename) {
-          var listItem = document.createElement("li");
-          listItem.textContent = filename;
-          var image = document.createElement("img");
-          image.src = imagesFolder + filename;
-          listItem.appendChild(image);
-          imageList.appendChild(listItem);
-        });
       }
     </script>
   </body>
