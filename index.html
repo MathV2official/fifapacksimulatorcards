@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Random Image</title>
+  </head>
+  <style>
+		body {
+			text-align: center;
+			margin-top: 50px;
+			font-family: Arial, sans-serif;
+			background: linear-gradient(to right, #1e1e1e, #0a0a0a, #FFFFFF);
+		}
+		img {
+			max-width: 200px;
+			max-height: 200px;
+			margin: 10px;
+		}
+		h1 {
+			font-size: 36px;
+			margin-bottom: 50px;
+			color: #4CAF50;
+		}
+		button {
+			padding: 10px 20px;
+			border: none;
+			background-color: #007bff;
+			color: #fff;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+  <body>
+    <button onclick="getRandomImage()">Get Random Image</button>
+    <br><br>
+    <img id="image" src="">
+    <script>
+      function getRandomImage() {
+        var image = document.getElementById("image");
+        var randomNum = Math.random();
+        var highProbImages = [
+          "https://mathv2fifacards.netlify.app/Futbirthdaycards/Bernardo.png",
+          "https://mathv2fifacards.netlify.app/Futbirthdaycards/Sow.jpg",
+          "https://mathv2fifacards.netlify.app/Futbirthdaycards/Yeray.jpg"
+        ];
+        var lowProbImages = [
+          "https://mathv2fifacards.netlify.app/Futbirthdaycards/Cantona.png",
+          "https://mathv2fifacards.netlify.app/Futbirthdaycards/Puskas.png"
+        ];
+        if (randomNum < 0.99) {
+          // get image with 99% chance
+          var imageUrl = highProbImages[Math.floor(Math.random() * highProbImages.length)];
+        } else {
+          // get image with 1% chance
+          var imageUrl = lowProbImages[Math.floor(Math.random() * lowProbImages.length)];
+        }
+        image.src = imageUrl;
+      }
+    </script>
+  </body>
+</html>
