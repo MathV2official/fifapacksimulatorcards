@@ -39,6 +39,17 @@
         }
         image.src = imageUrl;
       }
+      if (packedImages.includes(imageUrl.split('/').pop())) {
+  var packed = localStorage.getItem('packed');
+  if (!packed) {
+    packed = [];
+  } else {
+    packed = JSON.parse(packed);
+  }
+  packed.push(imageUrl);
+  localStorage.setItem('packed', JSON.stringify(packed));
+}
+
     </script>
   </body>
 </html>
