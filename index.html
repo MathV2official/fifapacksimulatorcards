@@ -9,6 +9,8 @@
     <br><br>
     <img id="image" src="">
     <script>
+      var packedImages = JSON.parse(localStorage.getItem('packedImages')) || [];
+
       function getRandomImage() {
         var image = document.getElementById("image");
         var randomNum = Math.random();
@@ -38,18 +40,12 @@
           var imageUrl = lowProbImages[Math.floor(Math.random() * lowProbImages.length)];
         }
         image.src = imageUrl;
+        if (packedImages.includes(imageUrl.split('/').pop())) {
+          // add to packed list and update local storage
+          packedImages.push(imageUrl.split('/').pop());
+          localStorage.setItem('packedImages', JSON.stringify(packedImages));
+        }
       }
-      if (packedImages.includes(imageUrl.split('/').pop())) {
-  var packed = localStorage.getItem('packed');
-  if (!packed) {
-    packed = [];
-  } else {
-    packed = JSON.parse(packed);
-  }
-  packed.push(imageUrl);
-  localStorage.setItem('packed', JSON.stringify(packed));
-}
-
     </script>
   </body>
 </html>
